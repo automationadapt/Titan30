@@ -20,7 +20,7 @@ public class CreateProjectTest extends BaseTest
 		login("techadmin");
 	}
 
-	@Test(dataProvider = "getData", priority = 1)
+	@Test(dataProvider = "getData")
 	public void fn_CreateProjectTest(String ProjectCode, String ProjectName,
 			String Departind, String OfficeInd, String Startdate,
 			String Enddate, String AStartdate, String ProjectScope, String Type,
@@ -32,7 +32,6 @@ public class CreateProjectTest extends BaseTest
 				ProjectName, Departind, OfficeInd, Startdate, Enddate,
 				AStartdate, ProjectScope, Type, Industry, Manager, StackHolder,
 				Sponser, Client, AlertMessage, DuplicateMSG, DateValidation);
-		System.out.println(msg);
 		Assert.assertEquals(msg, AlertMessage);
 	}
 	

@@ -20,7 +20,8 @@ public class ProjectList extends BaseTest {
 	}
 	
 	
-	public CreateProjectPage fn_NavCreateProject() {		
+	public CreateProjectPage fn_NavCreateProject() {
+		waitforProgressBar();
 		driver.findElement(By.xpath("//button[@id='CreateProject']")).click();
 		waitforProgressBar();
 		CreateProjectPage createProjectObj = new CreateProjectPage();

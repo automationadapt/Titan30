@@ -20,9 +20,10 @@ public class CreateProjectPage extends BaseTest
 			String Client, String AlertMessage, String DuplicateMSG,
 			String DateValidation) throws InterruptedException
 	{
-	
+
 		type("ProjectCodeTB_ID", ProjectCode);
-		driver.findElement(By.id(OR.getProperty("ProjectCodeTB_ID"))).sendKeys(Keys.TAB);
+		driver.findElement(By.id(OR.getProperty("ProjectCodeTB_ID")))
+				.sendKeys(Keys.TAB);
 		actualAlertText = meancheck();
 		if (actualAlertText.isEmpty())
 		{
@@ -47,7 +48,8 @@ public class CreateProjectPage extends BaseTest
 							type("ProjectScopeTB_ID", ProjectScope);
 							type("ProjectTypeTB_ID", Type);
 							type("ClientIndustryTB_ID", Industry);
-							Select("ProjectManagerSelecvt_XPATH", Manager);
+							Select("ProjectManagerSelecvt_XPATH",
+									Config.getProperty("pmname"));
 							Select("StackHolderSelect_XPATH", StackHolder);
 							Select("ProjSponserSelect_XPATH", Sponser);
 							type("ClientNameTB_ID", Client);
@@ -66,9 +68,7 @@ public class CreateProjectPage extends BaseTest
 
 		else
 		{
-			// System.out.println(actualAlertText+ " before Within Method");
 			return actualAlertText;
-
 		}
 		System.out.println(actualAlertText + "Within Method");
 		return actualAlertText;
