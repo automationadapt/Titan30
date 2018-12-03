@@ -9,7 +9,7 @@
     <classes>
     	<class name="testcases.CreateProjectTest"/>
     </classes>
-  </test>
+ </test>
   
   <test name="Create Team Test">
     <classes>
