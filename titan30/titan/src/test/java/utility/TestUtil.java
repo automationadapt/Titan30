@@ -20,7 +20,6 @@ public class TestUtil extends BaseTest
 		
 		Date date = new Date();
 		fileName = date.toString().replace(" ", "_").replace(":", "_") + ".jpg";
-		System.out.println(fileName);
 		File src = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 		FileUtils.copyFile(src, new File(System.getProperty("user.dir")
 				+ "/target/surefire-reports/html/" + fileName));
@@ -32,7 +31,6 @@ public class TestUtil extends BaseTest
 	
 	public static Object[][] getData(String sheetName)
 	{
-
 		int rowNum = excel.getRowCount(sheetName);
 		int colNum = excel.getColumnCount(sheetName);
 		Object[][] data = new Object[rowNum - 1][colNum];

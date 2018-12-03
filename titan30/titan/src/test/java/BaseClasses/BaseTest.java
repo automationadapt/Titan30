@@ -7,6 +7,9 @@ import java.util.List;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
+import javax.mail.MessagingException;
+import javax.mail.internet.AddressException;
+
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -22,8 +25,10 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Reporter;
-import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
 
+import pageclasses.HomePageHeader;
 import utility.ExcelReader;
 import utility.MailMonitoring;
 
@@ -48,15 +53,17 @@ public class BaseTest
 	public static WebElement webele;
 	MailMonitoring mail = new MailMonitoring();
 	public static WebElement dropdown;
-	public static Actions actObj; 
+	public static Actions actObj;
+	public static HomePageHeader homeObj; 
 
-	@BeforeSuite
-	public void StartBrowser()
+	@BeforeTest
+	public static void StartBrowser()
 	{
 		if (driver == null)
 		{
 			try
 			{
+				System.out.println("Now driver is null");
 				fis = new FileInputStream(System.getProperty("user.dir")
 						+ "\\src\\test\\resources\\properties\\Config.properties");
 			} catch (FileNotFoundException e)
@@ -116,12 +123,14 @@ public class BaseTest
 				System.out.println(
 						"Browser name is incorrorect, Check in the config file");
 			}
+	
 
 		}
 
 		driver.get(Config.getProperty("testsiteurl"));
 		BaseTest.PageLoad();
 		actObj =new Actions(driver); 
+		HomePageHeader homeObj= new HomePageHeader();
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(
 				Integer.parseInt(Config.getProperty("implicit.wait")),
@@ -223,6 +232,7 @@ public class BaseTest
 			System.out.println("Check User Role Name and credentials");
 		}
 
+		System.out.println(driver +"Driver Value which showing null pointer exceptiption");
 		boolean element = driver
 				.findElement(By.xpath(OR.getProperty("ConfirButton_XPATH")))
 				.isDisplayed();
@@ -235,8 +245,9 @@ public class BaseTest
 		{
 			System.out.println("Confirmation Box doesnt appeared");
 		}
-
-		click("WorkplaceLink_XPATH");
+		System.out.println("clicking on Workspace Link ");
+		actObj.click(driver.findElement(By.xpath(OR.getProperty("WorkplaceLink_XPATH")))).build().perform();
+//		click();
 		log.debug("Successfully landed to the Homepage");
 
 	}
@@ -345,12 +356,13 @@ public class BaseTest
 		}
 	}
 
-//	@AfterSuite
-//	public void tearDown() throws AddressException, MessagingException
-//	{
-//		// mail.sendMail(TestConfig.server, TestConfig.from, TestConfig.to,
-//		// TestConfig.subject, TestConfig.messageBody,
-//		// TestConfig.attachmentPath, TestConfig.attachmentName);
-//		 driver.quit();
-//	}
+	@AfterTest
+	public void tearDown() throws AddressException, MessagingException
+	{
+		// mail.sendMail(TestConfig.server, TestConfig.from, TestConfig.to,
+		// TestConfig.subject, TestConfig.messageBody,
+		// TestConfig.attachmentPath, TestConfig.attachmentName);
+		driver.quit();
+		driver = null; 
+	}
 }

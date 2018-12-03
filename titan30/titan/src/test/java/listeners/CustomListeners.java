@@ -36,7 +36,7 @@ public class CustomListeners implements ITestListener
 			System.out.println(TestUtil.fileName);
 			Reporter.log("<a href="+TestUtil.fileName+">Screenshot</a>");
 			Reporter.log("<br>");
-			Reporter.log("<a href="+TestUtil.fileName+"><img src="+TestUtil.fileName+" height=200 width=200></a>");
+			Reporter.log("<a href="+TestUtil.fileName+"><img src="+TestUtil.fileName+" height=200 width=400></a>");
 //			Reporter.log("<a href="+TestUtil.fileName+"target=\"_blank\"><img src="+TestUtil.fileName+" height=200 width=200></a>");
 
 		} catch (IOException e)
