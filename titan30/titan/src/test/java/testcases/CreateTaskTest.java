@@ -31,7 +31,6 @@ public class CreateTaskTest extends CreateTaskPage {
 	
 	}
 	
-	
 	@DataProvider
 	public Object[][] getDataOne()
 	{

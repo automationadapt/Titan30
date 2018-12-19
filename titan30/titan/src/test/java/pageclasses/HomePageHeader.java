@@ -21,6 +21,9 @@ public class HomePageHeader extends BaseTest {
 		
 	}
 	 
+	public static void fn_NavDashboard () {
+		
+	}
 
 	
 	
