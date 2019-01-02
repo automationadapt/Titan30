@@ -5,29 +5,29 @@
        <listener class-name="listeners.CustomListeners"/>
 </listeners>
 
-<!-- <test name="Create Project Test"> -->
-<!--     <classes> -->
-<!--     	<class name="testcases.CreateProjectTest"/> -->
-<!--     </classes> -->
-<!--  </test> -->
+<test name="Create Project Test">
+    <classes>
+    	<class name="testcases.CreateProjectTest"/>
+    </classes>
+ </test>
   
-<!--   <test name="Create Team Test"> -->
-<!--     <classes> -->
-<!--    		<class name="testcases.ProjectTeamTest"/> -->
-<!--     </classes> -->
-<!--   </test> -->
-  
-<!-- <test name="Create Task Test"> -->
-<!--     <classes> -->
-<!--    		<class name="testcases.CreateTaskTest"/> -->
-<!--     </classes> -->
-<!--   </test> -->
+  <test name="Create Team Test">
+    <classes>
+   		<class name="testcases.ProjectTeamTest"/>
+    </classes>
+  </test>
   
 <test name="Create Task Test">
     <classes>
    		<class name="testcases.CreateTaskTest"/>
     </classes>
-</test> 
+  </test>
+  
+<!-- <test name="Create Task Test"> -->
+<!--     <classes> -->
+<!--    		<class name="testcases.CreateTaskTest"/> -->
+<!--     </classes> -->
+<!-- </test>  -->
   
   
    

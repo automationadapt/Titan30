@@ -27,4 +27,5 @@ public class ProjectList extends BaseTest {
 		CreateProjectPage createProjectObj = new CreateProjectPage();
 		return createProjectObj;
 	}
+	
 }
