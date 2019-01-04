@@ -28,8 +28,13 @@ import org.testng.Reporter;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 
+import com.relevantcodes.extentreports.ExtentReports;
+import com.relevantcodes.extentreports.ExtentTest;
+import com.relevantcodes.extentreports.LogStatus;
+
 import pageclasses.HomePageHeader;
 import utility.ExcelReader;
+import utility.ExtentManager;
 import utility.MailMonitoring;
 
 public class BaseTest
@@ -55,10 +60,14 @@ public class BaseTest
 	public static WebElement dropdown;
 	public static Actions actObj;
 	public static HomePageHeader homeObj; 
-
+	public ExtentReports rep= ExtentManager.getInstance(); 
+	public static ExtentTest test;
+	
 	@BeforeTest
 	public static void StartBrowser()
 	{
+		
+		
 		if (driver == null)
 		{
 			try
@@ -177,6 +186,9 @@ public class BaseTest
 
 		Select selectEle = new Select(dropdown);
 		selectEle.selectByVisibleText(Value);
+		
+		
+		test.log(LogStatus.INFO, "Selecting from dropdown: "+ locator.split("_")[0] + " Value as: '"+Value+"'" );
 	}
 
 	public void SelectByIndex(String locator, String Value)
@@ -201,6 +213,8 @@ public class BaseTest
 		Select selectEle = new Select(dropdown);
 		int index= Integer.parseInt(Value); 
 		selectEle.selectByIndex(index);
+		test.log(LogStatus.INFO, "Selecting from dropdown: "+ locator.split("_")[0] + " at Index '"+Value+"'");
+		
 	}
 
 	public static void login(String Role) throws InterruptedException
@@ -272,18 +286,22 @@ public class BaseTest
 			{
 				System.out.println("Check the Locator of WebElement");
 			}
-		} catch (Throwable t)
+		}
+		
+		catch (Throwable t)
 		{
 			log.debug("Error" + locator);
 			log.debug(t.getMessage());
 			Reporter.log(t.getMessage());
 			
 		}
+		test.log(LogStatus.INFO, "Typing in: "+ locator.split("_")[0] + " Value as: '"+Value+"'" );
 	}
 
 	public static void dateselect(String locator, String value)
 	{
 		click(locator);
+		
 		wait.until(ExpectedConditions.visibilityOf(driver
 				.findElement(By.xpath("//div[@id='ui-datepicker-div']"))));
 		WebElement datewid = driver

@@ -14,6 +14,7 @@ public class TestUtil extends BaseTest
 {
 
 	public static String fileName;
+	
 
 	public static void captureScreenshot() throws IOException
 	{
