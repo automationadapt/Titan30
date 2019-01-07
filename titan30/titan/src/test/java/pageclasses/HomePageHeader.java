@@ -21,8 +21,13 @@ public class HomePageHeader extends BaseTest {
 		
 	}
 	 
-	public static void fn_NavDashboard () {
-		
+	public static MyDashboard fn_NavDashboard () {
+		wait.until(
+				ExpectedConditions.visibilityOf(driver.findElement(By.xpath(OR.getProperty("MyDashBoard_XPATH")))));
+		click("MyDashBoard_XPATH");
+		waitforProgressBar();
+		MyDashboard objDashboard= new MyDashboard();
+		return objDashboard; 
 	}
 
 	

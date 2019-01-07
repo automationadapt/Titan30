@@ -5,7 +5,7 @@ import BaseClasses.BaseTest;
 public class ProjectTeam extends BaseTest
 {
 
-	public void fn_AddNewTeamMemeber ( String startdate, String releasedate ) {
+	public void fn_AddNewTeamMember ( String startdate, String releasedate ) {
 		click("AddMoreBTN_XPATH");
 		Select("TeamMember_XPATH", Config.getProperty("teammembername"));
 		type("RoleTB_XPATH", "Developer");

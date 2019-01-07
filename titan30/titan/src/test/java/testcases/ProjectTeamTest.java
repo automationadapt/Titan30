@@ -16,11 +16,9 @@ public class ProjectTeamTest extends ProjectTeam{
 	}
 
 	@Test(dataProvider = "getDataOne")
-	// dependsOnGroups={"createproject"}
 	public void fn_AddTeamMember(String startdate,String releasedate) throws InterruptedException
 	{
-		homeObj.fn_NavProjectlist().fn_navProjectDetails().fn_NavProjectTeam().fn_AddNewTeamMemeber(startdate, releasedate);
-	
+		homeObj.fn_NavProjectlist().fn_navProjectDetails().fn_NavProjectTeam().fn_AddNewTeamMember(startdate, releasedate);
 	}
 	
 	

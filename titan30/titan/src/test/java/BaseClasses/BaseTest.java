@@ -372,6 +372,7 @@ public class BaseTest
 			// log.debug(t.getMessage());
 			// Assert.fail(t.getMessage());
 		}
+		test.log(LogStatus.INFO, "Clicked on: "+ locator.split("_")[0] );
 	}
 
 	@AfterTest

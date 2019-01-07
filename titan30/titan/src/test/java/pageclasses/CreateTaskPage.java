@@ -18,13 +18,17 @@ public class CreateTaskPage extends BaseTest
      {
           waitforProgressBar();
           type("TaskNameTB_XPATH", TaskName);
+          
           click("AssignToSelect_XPATH");
           wait.until(ExpectedConditions.visibilityOf(driver
                    .findElement(By.xpath(OR.getProperty("AssignTovalue_XPATH")))));
-          click("AssignTovalue_XPATH");
+          String Member=Config.getProperty("teammembername");
+          System.out.println(Member);
+          String _temp="//*[text()="+"'"+" "+ Member+"'"+"]";
+          driver.findElement(By.xpath(_temp)).click();     
           click("AssignToSelect_XPATH");
           wait.until(ExpectedConditions.invisibilityOf(driver
-          .findElement(By.xpath(OR.getProperty("Assignpopup_XPATH"))))); 
+          .findElement(By.xpath(OR.getProperty("Assignpopup_XPATH")))));
           driver.findElement(By.xpath(OR.getProperty("AssignToSelect_XPATH"))).sendKeys(Keys.TAB);
           type("DescriptionTB_XPATH", Description);
           dateselect("TaskStartDateTB_XPATH", StartDate);
