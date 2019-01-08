@@ -15,18 +15,21 @@ public class UpdateTaskTest extends UpdateTask
 		login("pm");
 	}
 	
-	@Test
-	public void fn_UpdateTaskTest() throws InterruptedException
+	@Test(dataProvider="getDataOne")
+	public void fn_UpdateTaskTest(String ProjectName,String TaskName, String UpdateTaskStatus, String CompletionDate
+) throws InterruptedException
 	{
-		homeObj.fn_NavDashboard().fn_NavToTask().fn_UpdateTask();
+		
+		homeObj.fn_NavDashboard().fn_NavToTask().fn_UpdateTask(ProjectName, TaskName, UpdateTaskStatus);
 	
 	}
 	
 	
-//	@DataProvider
-//	public Object[][] getDataOne()
-//	{
-//		return TestUtil.getData("TaskStatus");
-//	}
+	@DataProvider
+	public Object[][] getDataOne()
+	{
+	
+		return TestUtil.getData("TaskStatus");
+	}
 
 }

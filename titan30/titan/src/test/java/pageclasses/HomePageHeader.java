@@ -25,7 +25,7 @@ public class HomePageHeader extends BaseTest {
 		wait.until(
 				ExpectedConditions.visibilityOf(driver.findElement(By.xpath(OR.getProperty("MyDashBoard_XPATH")))));
 		click("MyDashBoard_XPATH");
-		waitforProgressBar();
+//		waitforProgressBar();
 		MyDashboard objDashboard= new MyDashboard();
 		return objDashboard; 
 	}
