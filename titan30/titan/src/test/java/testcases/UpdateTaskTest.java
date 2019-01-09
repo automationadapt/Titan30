@@ -19,16 +19,13 @@ public class UpdateTaskTest extends UpdateTask
 	public void fn_UpdateTaskTest(String ProjectName,String TaskName, String UpdateTaskStatus, String CompletionDate
 ) throws InterruptedException
 	{
-		
-		homeObj.fn_NavDashboard().fn_NavToTask().fn_UpdateTask(ProjectName, TaskName, UpdateTaskStatus);
-	
+		homeObj.fn_NavDashboard().fn_NavToTask().fn_UpdateStatus(ProjectName, TaskName, UpdateTaskStatus); 
 	}
 	
 	
 	@DataProvider
 	public Object[][] getDataOne()
 	{
-	
 		return TestUtil.getData("TaskStatus");
 	}
 
