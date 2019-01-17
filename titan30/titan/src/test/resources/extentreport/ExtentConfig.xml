@@ -35,19 +35,12 @@
         <!-- custom javascript -->
         <scripts>
             <![CDATA[
+             
                 $(document).ready(function() {
-<!--                     $('.logo-container.blue.darken-2').css('display','none'); -->
                     $('.logo-container.blue.darken-2').remove(); 
-                    $('.report-name').css('padding-left','0px');
-                    var Table="<div class='col l4 m12 s12'><div class='card-panel'>"+
-							"<span class='label info outline right'>Test Environment</span>"+
-							"<table><thead><tr><th>Param</th><th>Value</th></tr></thead>"+
-						    "<tbody id='tblbodyNewWebpart'></tbody></table></div></div>";
-                    
-                    $('.system-view').append(Table)
-                    $('#tblbodyNewWebpart').append("<tr><td>test1</td><td>"+Config.getProperty("browser")+"</td></tr>")
-                    
-                     
+
+                   
+                     $('#enableDashboard').click();
                 });
             ]]>
         </scripts>

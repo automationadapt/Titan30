@@ -12,7 +12,7 @@ public class UpdateTaskTest extends UpdateTask
 {
 	@BeforeClass
 	public static void fn_TechAdminLogin() throws InterruptedException {
-		login("pm");
+		login("teammember");
 	}
 	
 	@Test(dataProvider="getDataOne")

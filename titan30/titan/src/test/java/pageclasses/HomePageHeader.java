@@ -16,9 +16,10 @@ public class HomePageHeader extends BaseTest {
 		click("MenuDirectory_XPATH");
 		wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath(OR.getProperty("LinkProject_XPATH")))));
 		actObj.click(driver.findElement(By.xpath(OR.getProperty("LinkProject_XPATH")))).build().perform();
+		System.out.println("After Project Link Click");
+		waitforProgressBar();
 		ProjectList ObjProjectList = new ProjectList();
 		return ObjProjectList;
-		
 	}
 	 
 	public static MyDashboard fn_NavDashboard () {

@@ -62,11 +62,14 @@ public class BaseTest
 	public static HomePageHeader homeObj; 
 	public ExtentReports rep= ExtentManager.getInstance(); 
 	public static ExtentTest test;
+	public static String browser; 
 	
 	@BeforeTest
 	public static void StartBrowser()
 	{
 		
+		
+
 		
 		if (driver == null)
 		{
@@ -103,6 +106,16 @@ public class BaseTest
 				e.printStackTrace();
 			}
 
+			if(System.getenv("browser")!=null && !System.getenv("browser").isEmpty()){
+				
+				browser = System.getenv("browser");
+			}else{
+				
+				browser = Config.getProperty("browser");
+				
+			}
+			
+			Config.setProperty("browser", browser);
 			if (Config.getProperty("browser").equalsIgnoreCase("firefox"))
 			{
 				System.setProperty("webdriver.gecko.driver", System
@@ -136,7 +149,7 @@ public class BaseTest
 
 		}
 
-		driver.get(Config.getProperty("testsiteurl"));
+		driver.get(Config.getProperty("siteurl"));
 		BaseTest.PageLoad();
 		actObj =new Actions(driver); 
 		HomePageHeader homeObj= new HomePageHeader();
@@ -326,8 +339,7 @@ public class BaseTest
 		try
 		{
 			wait.until(ExpectedConditions.invisibilityOf(driver
-					.findElement(By.xpath("//div[@class='modal fade page-load-outer-div in']"))));
-//			wait.until(ExpectedConditions.invisibilityOfElementLocated(driver.findElement(By.xpath(""))))
+					.findElement(By.xpath("//div[@class='modal fade page-load-outer-div']"))));
 		} catch (Exception e)
 		{
 			// TODO Auto-generated catch block
